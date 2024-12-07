@@ -1,0 +1,92 @@
+---
+import { getCollection } from "astro:content";
+import NavigationEntry from "./NavigationEntry.astro";
+const allProjects = await getCollection("projects");
+const allPosts = await getCollection("posts");
+---
+
+<style>
+  #nav-panel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  #nav-panel::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+<div
+  id="nav-panel"
+  class="z-10 block h-lvh w-dvw sm:w-auto overflow-y-auto fixed top-0 transform-all -translate-x-full sm:translate-x-0 transition-all backdrop-blur-sm sm:backdrop-blur-none"
+>
+  <nav
+    class="flex flex-col md:h-auto max-h-fit min-h-lvh justify-center items-center px-4 text-xl
+    divide-y divide-emerald-900 border-emerald-900 border-r bg-emerald-975 w-min"
+  >
+    <NavigationEntry
+      title="Kabaczek.me"
+      listmode="false"
+      title_href="#about"
+      title_id="nav_about"
+    />
+    <NavigationEntry
+      title="Projects"
+      listmode="true"
+      see_more_link="/projects"
+      title_href="#projects"
+      title_id="nav_projects"
+    >
+      {
+        allProjects
+          .filter((post) => post.data.featured)
+          .sort((a, b) => {
+            if (a.data.pubDate > b.data.pubDate) {
+              return -1;
+            } else {
+              return 1;
+            }
+          })
+          .map((post) => (
+            <a
+              class="w-fit pl-2 block hover:text-emerald-300 transition-all hover:pl-3"
+              href={`/projects/${post.slug}`}
+            >
+              {post.data.title}
+            </a>
+          ))
+      }
+    </NavigationEntry>
+    <NavigationEntry
+      title="Blog"
+      listmode="true"
+      see_more_link="/posts"
+      title_href="#blog"
+      title_id="nav_blog"
+    >
+      {
+        allPosts
+          .filter((post) => post.data.featured)
+          .sort((a, b) => {
+            if (a.data.pubDate > b.data.pubDate) {
+              return -1;
+            } else {
+              return 1;
+            }
+          })
+          .map((post) => (
+            <a
+              class="w-fit pl-2 block hover:text-emerald-300 transition-all hover:pl-3"
+              href={`/posts/${post.slug}`}
+            >
+              {post.data.title}
+            </a>
+          ))
+      }
+    </NavigationEntry>
+    <NavigationEntry
+      title="Contact"
+      listmode="false"
+      title_href="#contact"
+      title_id="nav_contact"
+    />
+  </nav>
+</div>

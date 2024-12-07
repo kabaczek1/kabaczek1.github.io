@@ -1,16 +1,46 @@
 ---
+import "../styles/global.css";
 
+import Navigation from "../components/navigation/Navigation.astro";
+
+import Hero from "../components/Hero.astro";
+import Projects from "../components/Projects.astro";
+import Posts from "../components/Posts.astro";
+import Contact from "../components/Contact.astro";
+
+import NavigationToggle from "../components/navigation/NavigationToggle.astro";
+import SmallScreen from "../components/SmallScreen.astro";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>kabaczek.me</title>
-	</head>
-	<body>
-		<h1>kabaczek.me</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon/favicon.ico" sizes="32x32" />
+    <link rel="image/png" href="/favicon/favicon_16.png" sizes="16x16" />
+    <link rel="image/png" href="/favicon/favicon_32.png" sizes="32x32" />
+    <link rel="image/png" href="/favicon/favicon_48.png" sizes="48x48" />
+    <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="me" href="https://mastodon.online/@kabaczek" />
+    <script src="../scripts/scroll.js"></script>
+    <script src="../scripts/nav.js"></script>
+    <script src="../scripts/previews.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Kabaczek.me</title>
+  </head>
+  <body>
+    <Navigation />
+    <main
+      id="main-content"
+      class="min-w-[360px] flex flex-col items-center sm:pl-[16.5rem] sm:pr-2 sm:w-full transition-all z-0"
+    >
+      <Hero />
+      <Projects />
+      <Posts />
+      <Contact />
+    </main>
+
+    <NavigationToggle />
+    <SmallScreen />
+  </body>
 </html>

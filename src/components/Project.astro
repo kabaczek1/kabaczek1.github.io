@@ -1,0 +1,26 @@
+---
+import PanelListItem from "./panel/PanelListItem.astro";
+const {
+  title,
+  tag,
+  description,
+  preview_open,
+  page_url,
+  image_src,
+  image_alt,
+} = Astro.props;
+---
+
+<PanelListItem
+  preview_open={preview_open}
+  page_url={page_url}
+  image_src={image_src}
+  image_alt={image_alt}
+>
+  <div class="text-xl">
+    {title}<div class="pl-2 text-base text-emerald-50/50 inline-block">
+      [{tag}]
+    </div>
+  </div>
+  <div class="text-base">{description}</div>
+</PanelListItem>

@@ -1,0 +1,20 @@
+---
+const { title, panel_id } = Astro.props;
+var scroll_target = `#${panel_id}`;
+---
+
+<div class="panel max-h-fit min-h-lvh relative" id={panel_id}>
+  {
+    title && (
+      <div class="mx-auto pt-6 md:pt-8 pb-4 px-4 text-3xl font-bold md:hidden flex flex-row items-baseline select-none gap-2 w-[360px] md:w-auto">
+        <a
+          href={scroll_target}
+          class="inline-block hover:text-emerald-300 transition-all"
+        >
+          {title}
+        </a>
+      </div>
+    )
+  }
+  <slot />
+</div>

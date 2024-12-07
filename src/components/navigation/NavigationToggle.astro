@@ -1,0 +1,11 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button
+  id="menu-toggle"
+  class="z-20 fixed top-0 right-0 m-7 p-1 rounded group bg-emerald-975 border border-emerald-50 hover:border-emerald-300 transition-all duration-200 sm:right-[-64px]"
+>
+  <Icon name="x" class:list={["hidden"]} height="24" width="24" id="icon-x" />
+  <Icon name="menu" height="24" width="24" id="icon-menu" />
+</button>

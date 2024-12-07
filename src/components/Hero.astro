@@ -1,0 +1,50 @@
+---
+import PanelFull from "./panel/PanelFull.astro";
+---
+
+<PanelFull panel_id="about">
+  <div class="flex flex-col justify-center max-h-fit min-h-svh py-4">
+    <div class="lg:mb-2 xl:mb-4 2xl:mb-8">
+      <div class="text-base xl:text-lg 2xl:text-xl">Hey, I'm known as</div>
+      <div
+        class="text-6xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] leading-relaxed font-bold
+        bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 to-emerald-500"
+      >
+        Kabaczek
+      </div>
+    </div>
+    <div class="flex flex-col lg:flex-row">
+      <div>
+        <div class="font-bold xl:text-xl 2xl:text-2xl">
+          But some people call me
+        </div>
+        <div
+          class="text-2xl xl:text-3xl my-0 xl:my-1 2xl:text-4xl leading-relaxed 2xl:my-2 font-bold
+          bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 to-emerald-500"
+        >
+          Krystian Nowakowski
+        </div>
+
+        <div class="text-sm xl:text-base 2xl:text-lg text-emerald-50/50">
+          (It's weird, I know)
+        </div>
+      </div>
+      <div
+        class="text-base text-justify mt-4 lg:mt-0 lg:pl-4 xl:pl-6 xl:text-2xl 2xl:text-3xl 2xl:leading-10"
+      >
+        <p>I spend my time creating stuff.</p>
+        <p>Primarily games, websites & apps.</p>
+        <p>Engineer, designer, problem solver.</p>
+      </div>
+    </div>
+    <a
+      href="#projects"
+      class="bg-emerald-700 p-4 px-6 rounded-xl mt-8 font-bold text-center w-full
+      lg:mt-8 xl:mt-16 lg:w-fit xl:text-lg
+      2xl:text-xl
+      hover:bg-emerald-800 hover:shadow-md
+      transition-all duration-150"
+      >See my projects
+    </a>
+  </div>
+</PanelFull>

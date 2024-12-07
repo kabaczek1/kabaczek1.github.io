@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter, page_section, back_href, back_title } = Astro.props;
+const page_title = `${frontmatter.title} | ${page_section}`;
+const backgroundColor = frontmatter.coverBackground;
+---
+
+<style define:vars={{ backgroundColor }}>
+  img {
+    background-color: var(--backgroundColor);
+  }
+</style>
+
+<BaseLayout title={page_title} back_href={back_href} back_title={back_title}>
+  <div
+    class="w-full mt-8 sm:mt-10 md:mt-12 lg:mt-16 mb-0 sm:mb-1 md:mb-2 lg:mb-4 px-8"
+  >
+    <div
+      class="font-bold pb-1
+      text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+    >
+      {frontmatter.title}
+    </div>
+    <div class="pb-1 text-base sm:text-lg md:text-xl lg:text-2xl">
+      {frontmatter.description}
+    </div>
+    <div class="flex items-center gap-1 sm:gap-2">
+      <div
+        class="shrink-0 text-sm sm:text-base md:text-lg text-emerald-50/50 flex flex-row gap-2
+      mb-2 sm:mb-3 md:mb-4 lg:mb-6"
+      >
+        [{frontmatter.pubDate.toISOString().slice(0, 10)}]
+      </div>
+      <div
+        class="shrink-0 w-fit text-sm sm:text-base md:text-lg text-emerald-50/50 flex flex-row gap-2
+      mb-2 sm:mb-3 md:mb-4 lg:mb-6"
+      >
+        {frontmatter.tags.map((tag) => <div>[{tag}]</div>)}
+      </div>
+    </div>
+    <Image
+      class="touch-auto rounded-xl overflow-hidden object-none h-[360px] w-[740px]"
+      width="360"
+      height="360"
+      src={frontmatter.cover}
+      alt={frontmatter.coverAlt}
+      loading="lazy"
+    />
+  </div>
+
+  <article
+    class="px-8 prose-img:mx-auto prose-p:my-3
+    prose-h1:font-bold prose-h1:text-3xl prose-h1:lg:text-4xl
+    prose-h1:mt-4 prose-h1:lg:mt-8
+    prose-h2:font-bold prose-h2:text-xl prose-h2:lg:text-2xl
+    prose-h2:mt-2
+    prose-img:bg-black prose-img:object-contain prose-img:rounded-xl
+    hover:prose-a:text-emerald-300 prose-a:underline
+    prose-pre:p-4 prose-pre:rounded-xl prose-pre:my-2
+    prose-ul:list-disc prose-ul:list-inside"
+  >
+    <slot />
+  </article>
+</BaseLayout>

@@ -1,0 +1,44 @@
+---
+const { title, panel_id, see_more_link, list_id } = Astro.props;
+var scroll_target = `#${panel_id}`;
+---
+
+<div
+  class="panel mb-12 last:mb-0 md:min-h-lvh md:max-h-fit md:mb-0 md:flex md:flex-col md:justify-center md:py-2 relative"
+  id={panel_id}
+>
+  {
+    title && (
+      <div class="pt-6 md:pt-8 pb-4 px-4 text-3xl font-bold md:hidden flex flex-row items-baseline gap-2 select-none">
+        <a
+          href={scroll_target}
+          class="inline-block hover:text-emerald-300 transition-all"
+        >
+          {title}
+        </a>
+        {see_more_link && (
+          <a
+            href={see_more_link}
+            class="pl-2 text-base inline-block text-emerald-50/50 hover:text-emerald-300 transition-all"
+          >
+            see more
+          </a>
+        )}
+      </div>
+    )
+  }
+  <div
+    id={list_id}
+    class="list-with-previews flex flex-col justify-start min-h-[700px] gap-2
+    2xl:flex-row 2xl:min-h-fit"
+  >
+    <slot />
+  </div>
+  <div
+    class="select-none absolute left-0 top-[4lvh] text-[10lvw] leading-[8lvw] -z-10 text-emerald-50/25
+    opacity-0 transition-opacity duration-0
+    2xl:opacity-100 2xl:duration-500"
+  >
+    {title}
+  </div>
+</div>

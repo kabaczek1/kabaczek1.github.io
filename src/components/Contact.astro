@@ -1,0 +1,80 @@
+---
+import { Icon } from "astro-icon/components";
+import Footer from "./Footer.astro";
+const title = "Contact";
+const panel_id = "contact";
+const scroll_target = `#${panel_id}`;
+import { getCollection } from "astro:content";
+const allContacts = await getCollection("contact");
+---
+
+<div
+  class="panel max-h-fit min-h-dvh flex flex-col justify-between items-center w-full min-w-[360px] max-w-[804px]"
+  id={panel_id}
+>
+  <div
+    class="grow flex flex-col justify-normal md:justify-center items-center md:p-2"
+  >
+    <div id="contact-card" class="w-fit">
+      <div
+        class="pt-6 md:pt-8 pb-4 px-4 text-3xl font-bold md:hidden flex flex-row items-baseline select-none gap-2"
+      >
+        <a
+          href={scroll_target}
+          class="inline-block hover:text-emerald-300 transition-all"
+        >
+          {title}
+        </a>
+      </div>
+
+      <div
+        class="flex flex-col gap-2 md:gap-3 w-[360px] md:w-96 rounded-xl
+      shadow-md bg-emerald-900/50 p-4"
+      >
+        <div
+          class="hidden md:flex justify-between font-bold w-full md:text-5xl"
+        >
+          <div>Contact</div>
+          <img
+            src="/logo_x4.png"
+            alt="logo"
+            class="touch-none w-[48px] h-[48px]"
+            loading="lazy"
+          />
+        </div>
+        <div class="w-full pb-2 md:py-2 md:text-xl">
+          I'd love to hear from you!
+        </div>
+        {
+          allContacts
+            .sort((a, b) => {
+              if (a.data.order < b.data.order) {
+                return -1;
+              } else {
+                return 1;
+              }
+            })
+            .map((tile) => (
+              <a
+                href={tile.data.url}
+                class="group select-none transition-all duration-150 mx-auto w-full rounded-xl flex flex-row items-center
+            gap-6 py-3 px-6 bg-emerald-700 hover:bg-emerald-800 hover:shadow-md"
+              >
+                <Icon name={tile.data.icon} height="24" width="24" />
+                <div class="grow">
+                  <div>
+                    <div class="text-lg leading-6">{tile.data.title}</div>
+                    <div class="text-sm text-emerald-50/50 inline-block">
+                      {tile.data.displayurl}
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <Footer scroll_target="#about" show_button_text="lg" contact_icons="hidden" />
+</div>

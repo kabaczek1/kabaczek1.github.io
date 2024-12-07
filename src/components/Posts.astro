@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+
+import PanelList from "./panel/PanelList.astro";
+const allPosts = await getCollection("posts");
+import Post from "./Post.astro";
+---
+
+<PanelList
+  title="Blog"
+  panel_id="blog"
+  see_more_link="/posts"
+  list_id="blog_list"
+>
+  {
+    allPosts
+      .filter((post) => post.data.featured)
+      .sort((a, b) => {
+        if (a.data.pubDate > b.data.pubDate) {
+          return -1;
+        } else {
+          return 1;
+        }
+      })
+      .map((post, index) => (
+        <Post
+          preview_open={index == 0 && "true"}
+          title={post.data.title}
+          tag={post.data.tags[0]}
+          date={post.data.pubDate.toISOString().slice(0, 10)}
+          page_url={`/posts/${post.slug}`}
+          image_src={post.data.cover}
+          image_alt={post.data.coverAlt}
+        />
+      ))
+  }
+</PanelList>

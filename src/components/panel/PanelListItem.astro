@@ -1,0 +1,50 @@
+---
+const { preview_open, page_url, image_src, image_alt } = Astro.props;
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+---
+
+<div class:list={["list-element group", { "show-preview": preview_open }]}>
+  <div
+    class="text-justify group transition-all duration-700 2xl:duration-0 relative select-none
+    w-[360px] md:w-96 rounded-xl
+    group-[.show-preview]:shadow-md group-[.show-preview]:bg-emerald-900/50 group-[.show-preview]:md:pb-1
+    2xl:shadow-md 2xl:bg-emerald-900/50 2xl:pb-1"
+  >
+    <div class="flex flex-row items-center gap-2 p-4">
+      <div class="grow"><slot /></div>
+      <Icon
+        name="chevron-right"
+        class:list={[
+          "transition-all duration-700 select-none 2xl:duration-0 rotate-90 opacity-100 group-[.show-preview]:opacity-0 2xl:opacity-0 absolute right-0 mr-4",
+        ]}
+        height="24"
+        width="24"
+      />
+    </div>
+    <div
+      class="preview-image duration-700 2xl:duration-0 overflow-hidden
+      h-[0px] md:mx-3 opacity-0
+      group-[.show-preview]:h-[428px] group-[.show-preview]:md:h-[424px]
+      group-[.show-preview]:opacity-100
+      2xl:h-[424px] 2xl:opacity-100"
+    >
+      <Image
+        class="touch-auto md:rounded-xl"
+        width="360"
+        height="360"
+        src={image_src}
+        alt={image_alt}
+      />
+      <a
+        href={page_url}
+        class="px-4 py-2 mx-3 mb-2 mt-3 rounded-xl flex flex-row items-center gap-2
+        bg-emerald-700 hover:bg-emerald-800 hover:shadow-md transition-all
+        md:mx-0 md:rounded-xl duration-700 hover:duration-150"
+      >
+        <Icon name="link" />
+        <div class="text-lg -translate-y-0.5">{page_url.slice(1)}</div>
+      </a>
+    </div>
+  </div>
+</div>

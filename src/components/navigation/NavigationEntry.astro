@@ -1,0 +1,24 @@
+---
+const { title, title_id, title_href, see_more_link, listmode } = Astro.props;
+---
+
+<div class="w-full pt-8 pb-8 px-4 min-w-56 max-w-fit">
+  <a
+    id={title_id}
+    class="hover:text-emerald-300 transition-all hover:pl-1 font-bold block w-fit"
+    href={title_href}>{title}</a
+  >
+  {
+    listmode == "true" && (
+      <div class="text-base pt-1">
+        <slot />
+        <a
+          class="w-fit pt-1 pl-2 block text-emerald-50/50 hover:text-emerald-300 transition-all hover:pl-3"
+          href={see_more_link}
+        >
+          see more
+        </a>
+      </div>
+    )
+  }
+</div>
