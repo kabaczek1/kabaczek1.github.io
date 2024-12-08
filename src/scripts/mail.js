@@ -14,16 +14,11 @@ if (mail_href.length == 0) {
 }
 
 function iconPage() {
-  console.log("iconpage");
-  console.log("mail_icon: ", mail_icon);
   mail_icon[0].style.display = "block";
   mail_icon[0].href = `mailto:${getEmail()}`;
 }
 
 function mainPage() {
-  console.log("mainpage");
-  console.log("mail_href: ", mail_href);
-  console.log("mail_display: ", mail_display);
   mail_href[0].href = `mailto:${getEmail()}`;
   mail_href[0].style["pointer-events"] = "auto";
   mail_display[0].innerHTML = `${getEmail()}`;
