@@ -15,6 +15,13 @@ const {
   {
     contact_icons == "show" && (
       <div class="flex gap-3 md:gap-2">
+        <a
+          class="mail-icon-element hidden p-2 bg-emerald-700 hover:bg-emerald-800 hover:shadow-md rounded-lg font-bold transition-all duration-150"
+          href="/"
+          aria-label="mail"
+        >
+          <Icon width="24" height="24" name="mail" />
+        </a>
         {allContacts
           .sort((a, b) => {
             if (a.data.order < b.data.order) {
