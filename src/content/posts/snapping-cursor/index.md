@@ -1,7 +1,7 @@
 ---
 title: "Snapping Cursor"
 pubDate: 2024-11-06
-description: "Cursor that snaps to the grid(!)"
+description: "Cursor that snaps to the grid"
 author: "Kabaczek"
 cover: "./cursor.gif"
 coverAlt: "Snapping Cursor animation"
