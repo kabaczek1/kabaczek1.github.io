@@ -175,6 +175,10 @@ How to play
 
 In the end, I'm happy with how it turned out. It's a video game, and I made it! The game is finished, self-contained, and allowed me to make some mistakes that I will try to avoid in the future.
 
+# Play now!
+
+**Download the game on itch.io - [PolarityTD by Kabaczek](https://kabaczek.itch.io/polaritytd).**
+
 # References
 
 - [PolarityTD Prototype](https://github.com/kabaczek1/polarity-td-prototype)
