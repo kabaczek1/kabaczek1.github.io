@@ -30,15 +30,15 @@ var scroll_target = `#${panel_id}`;
   <div
     id={list_id}
     class="list-with-previews flex flex-col justify-start min-h-[700px] gap-2
-    2xl:flex-row 2xl:min-h-fit"
+    2xl:flex-row 2xl:flex-wrap 2xl:justify-center 2xl:min-h-fit"
   >
     <slot />
   </div>
-  <div
+  <!-- <div
     class="select-none absolute left-0 top-[4lvh] text-[10lvw] leading-[8lvw] -z-10 text-emerald-50/25
     opacity-0 transition-opacity duration-0
     2xl:opacity-100 2xl:duration-500"
   >
     {title}
-  </div>
+  </div> -->
 </div>
