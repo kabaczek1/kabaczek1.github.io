@@ -51,3 +51,7 @@ Visit the [blog section](/posts/) of my page to read the full write-ups for the 
 - Do I need different transition animations?
 - Should I allow adjustments to the transition speed?
 - How should scenes be managed?
+
+# Check it out!
+
+**See the [GitHub repository](https://github.com/kabaczek1/kaba-game).**

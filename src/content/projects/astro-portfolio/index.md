@@ -151,3 +151,7 @@ There are many things I'd like to improve on this page, but as I learned the har
 # Summary
 
 In the end, I'm happy with how the page turned out. It definitely has room for improvement, but using actions to build and host it will make implementing those improvements a breeze. Right now, I can't wait to start adding more content to my little corner of the web.
+
+# Check it out!
+
+**See the [GitHub repository](https://github.com/kabaczek1/kabaczek1.github.io).**
